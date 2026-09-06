@@ -79,14 +79,14 @@ Untuk meningkatkan akurasi, program dimodifikasi agar mengambil 5 sampel data, m
   float rataSuhu = sumSuhu / 5.0;
   float rataKelembaban = sumKelembaban / 5.0;
 ```
-*`float sumSuhu = 0;` : Mendeklarasikan variabel sumSuhu bertipe float dengan nilai awal 0 untuk menampung total akumulasi nilai suhu.
-*`float sumKelembaban = 0;` : Mendeklarasikan variabel sumKelembaban bertipe float dengan nilai awal 0 untuk menampung total akumulasi nilai kelembaban.
-*`for(int i = 0; i < 5; i++) {` : Memulai perulangan (looping) yang akan dieksekusi sebanyak 5 kali (indeks 0 hingga 4).
-*`sumKelembaban += dht.readHumidity();` : Membaca nilai kelembaban dari sensor saat itu, lalu menambahkannya (+=) ke dalam variabel sumKelembaban.
-*`sumSuhu += dht.readTemperature();` : Membaca nilai suhu dari sensor saat itu, lalu menambahkannya (+=) ke dalam variabel sumSuhu.
-*`delay(2000);` : Memberikan jeda 2 detik pada setiap iterasi pembacaan agar sensor DHT memiliki waktu yang cukup untuk memperbarui data hardware-nya sebelum dibaca kembali.
-*`float rataSuhu = sumSuhu / 5.0;` : Membuat variabel baru rataSuhu yang nilainya didapat dari total penjumlahan suhu (sumSuhu) dibagi 5.0.
-*`float rataKelembaban = sumKelembaban / 5.0;` : Membuat variabel baru rataKelembaban yang nilainya didapat dari total penjumlahan kelembaban (sumKelembaban) dibagi 5.0.
+* `float sumSuhu = 0;` : Mendeklarasikan variabel sumSuhu bertipe float dengan nilai awal 0 untuk menampung total akumulasi nilai suhu.
+* `float sumKelembaban = 0;` : Mendeklarasikan variabel sumKelembaban bertipe float dengan nilai awal 0 untuk menampung total akumulasi nilai kelembaban.
+* `for(int i = 0; i < 5; i++) {` : Memulai perulangan (looping) yang akan dieksekusi sebanyak 5 kali (indeks 0 hingga 4).
+* `sumKelembaban += dht.readHumidity();` : Membaca nilai kelembaban dari sensor saat itu, lalu menambahkannya (+=) ke dalam variabel sumKelembaban.
+* `sumSuhu += dht.readTemperature();` : Membaca nilai suhu dari sensor saat itu, lalu menambahkannya (+=) ke dalam variabel sumSuhu.
+* `delay(2000);` : Memberikan jeda 2 detik pada setiap iterasi pembacaan agar sensor DHT memiliki waktu yang cukup untuk memperbarui data hardware-nya sebelum dibaca kembali.
+* `float rataSuhu = sumSuhu / 5.0;` : Membuat variabel baru rataSuhu yang nilainya didapat dari total penjumlahan suhu (sumSuhu) dibagi 5.0.
+* `float rataKelembaban = sumKelembaban / 5.0;` : Membuat variabel baru rataKelembaban yang nilainya didapat dari total penjumlahan kelembaban (sumKelembaban) dibagi 5.0.
 
 ### B. Modifikasi Percobaan 2: Kendali Aktuator dengan Histerisis (Dua Ambang Batas)Penambahan/Modifikasi Kode Utama (menggantikan variabel suhuThreshold tunggal):
 ```
