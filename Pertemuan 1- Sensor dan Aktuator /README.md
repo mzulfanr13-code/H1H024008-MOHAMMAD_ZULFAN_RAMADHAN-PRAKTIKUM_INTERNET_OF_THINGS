@@ -42,10 +42,10 @@ Logika if-else ini bertugas memvalidasi data. Jika hasil pembacaan suhu ATAU (||
 
 ### Percobaan 2: Kendali Aktuator Relay
 **Penjelasan Kode (Tambahan dari Percobaan 1):**
-*`#define RELAYPIN 13` : Mendefinisikan pin GPIO 13 pada ESP32 sebagai pin kontrol untuk aktuator (Relay/LED).
-*`const float suhuThreshold = 30.0`; : Membuat variabel konstan bertipe desimal bernilai 30 derajat celsius sebagai batas acuan suhu untuk memicu aktuator.
-*`pinMode(RELAYPIN, OUTPUT);` : Mengatur pin 13 agar berfungsi sebagai pin keluaran (output) untuk mengirim sinyal ke aktuator.
-*`digitalWrite(RELAYPIN, LOW)`; : Memberikan sinyal LOW (0V) di awal untuk memastikan aktuator dalam keadaan mati saat sistem baru menyala.
+*   `#define RELAYPIN 13` : Mendefinisikan pin GPIO 13 pada ESP32 sebagai pin kontrol untuk aktuator (Relay/LED).
+*   `const float suhuThreshold = 30.0`; : Membuat variabel konstan bertipe desimal bernilai 30 derajat celsius sebagai batas acuan suhu untuk memicu aktuator.
+*   `pinMode(RELAYPIN, OUTPUT);` : Mengatur pin 13 agar berfungsi sebagai pin keluaran (output) untuk mengirim sinyal ke aktuator.
+*   `digitalWrite(RELAYPIN, LOW)`; : Memberikan sinyal LOW (0V) di awal untuk memastikan aktuator dalam keadaan mati saat sistem baru menyala.
 
 **Penjelasan Percabangan:** 
 ```
