@@ -79,14 +79,14 @@ Untuk meningkatkan akurasi, program dimodifikasi agar mengambil 5 sampel data, m
   float rataSuhu = sumSuhu / 5.0;
   float rataKelembaban = sumKelembaban / 5.0;
 ```
-* `float sumSuhu = 0;` : Mendeklarasikan variabel sumSuhu bertipe float dengan nilai awal 0 untuk menampung total akumulasi nilai suhu.
-* `float sumKelembaban = 0;` : Mendeklarasikan variabel sumKelembaban bertipe float dengan nilai awal 0 untuk menampung total akumulasi nilai kelembaban.
-* `for(int i = 0; i < 5; i++) {` : Memulai perulangan (looping) yang akan dieksekusi sebanyak 5 kali (indeks 0 hingga 4).
-* `sumKelembaban += dht.readHumidity();` : Membaca nilai kelembaban dari sensor saat itu, lalu menambahkannya (+=) ke dalam variabel sumKelembaban.
-* `sumSuhu += dht.readTemperature();` : Membaca nilai suhu dari sensor saat itu, lalu menambahkannya (+=) ke dalam variabel sumSuhu.
-* `delay(2000);` : Memberikan jeda 2 detik pada setiap iterasi pembacaan agar sensor DHT memiliki waktu yang cukup untuk memperbarui data hardware-nya sebelum dibaca kembali.
-* `float rataSuhu = sumSuhu / 5.0;` : Membuat variabel baru rataSuhu yang nilainya didapat dari total penjumlahan suhu (sumSuhu) dibagi 5.0.
-* `float rataKelembaban = sumKelembaban / 5.0;` : Membuat variabel baru rataKelembaban yang nilainya didapat dari total penjumlahan kelembaban (sumKelembaban) dibagi 5.0.
+*    `float sumSuhu = 0;` : Mendeklarasikan variabel sumSuhu bertipe float dengan nilai awal 0 untuk menampung total akumulasi nilai suhu.
+*    `float sumKelembaban = 0;` : Mendeklarasikan variabel sumKelembaban bertipe float dengan nilai awal 0 untuk menampung total akumulasi nilai kelembaban.
+*    `for(int i = 0; i < 5; i++) {` : Memulai perulangan (looping) yang akan dieksekusi sebanyak 5 kali (indeks 0 hingga 4).
+*    `sumKelembaban += dht.readHumidity();` : Membaca nilai kelembaban dari sensor saat itu, lalu menambahkannya (+=) ke dalam variabel sumKelembaban.
+*    `sumSuhu += dht.readTemperature();` : Membaca nilai suhu dari sensor saat itu, lalu menambahkannya (+=) ke dalam variabel sumSuhu.
+*    `delay(2000);` : Memberikan jeda 2 detik pada setiap iterasi pembacaan agar sensor DHT memiliki waktu yang cukup untuk memperbarui data hardware-nya sebelum dibaca kembali.
+*    `float rataSuhu = sumSuhu / 5.0;` : Membuat variabel baru rataSuhu yang nilainya didapat dari total penjumlahan suhu (sumSuhu) dibagi 5.0.
+*    `float rataKelembaban = sumKelembaban / 5.0;` : Membuat variabel baru rataKelembaban yang nilainya didapat dari total penjumlahan kelembaban (sumKelembaban) dibagi 5.0.
 
 ### B. Modifikasi Percobaan 2: Kendali Aktuator dengan Histerisis (Dua Ambang Batas)Penambahan/Modifikasi Kode Utama (menggantikan variabel suhuThreshold tunggal):
 ```
@@ -102,14 +102,14 @@ if (suhu > suhuBatasAtas) {
   Serial.println("Aktuator: OFF (Suhu < 28°C)");
 }
 ```
-*`const float suhuBatasAtas = 30.0;` : Mendefinisikan konstanta batas atas suhu di angka 30.0°C. Ini adalah titik di mana aktuator akan mulai menyala.
-*`const float suhuBatasBawah = 28.0;` : Mendefinisikan konstanta batas bawah suhu di angka 28.0°C. Ini adalah titik di mana aktuator akan dimatikan.
-*`if (suhu > suhuBatasAtas) {` : Percabangan kondisi pertama. Mengecek apakah nilai suhu yang baru saja dibaca lebih besar dari 30.0°C.
-*`digitalWrite(RELAYPIN, HIGH);` : Jika kondisi di atas benar (suhu > 30), ESP32 mengirim sinyal tegangan (HIGH) ke pin relay untuk menyalakan aktuator.
-*`Serial.println("Aktuator: ON (Suhu > 30°C)");` : Menampilkan informasi ke Serial Monitor bahwa aktuator sedang dalam kondisi ON.
-*`} else if (suhu < suhuBatasBawah) {` : Kondisi alternatif (histerisis). Jika suhu tidak lebih dari batas atas, program mengecek apakah suhu turun lebih kecil dari 28.0°C.
-*`digitalWrite(RELAYPIN, LOW);` : Jika suhu berada di bawah 28.0°C, ESP32 memutus sinyal (LOW) pada pin relay sehingga aktuator mati.
-*`Serial.println("Aktuator: OFF (Suhu < 28°C)");` : Menampilkan informasi ke Serial Monitor bahwa aktuator telah OFF.
+*   `const float suhuBatasAtas = 30.0;` : Mendefinisikan konstanta batas atas suhu di angka 30.0°C. Ini adalah titik di mana aktuator akan mulai menyala.
+*   `const float suhuBatasBawah = 28.0;` : Mendefinisikan konstanta batas bawah suhu di angka 28.0°C. Ini adalah titik di mana aktuator akan dimatikan.
+*   `if (suhu > suhuBatasAtas) {` : Percabangan kondisi pertama. Mengecek apakah nilai suhu yang baru saja dibaca lebih besar dari 30.0°C.
+*   `digitalWrite(RELAYPIN, HIGH);` : Jika kondisi di atas benar (suhu > 30), ESP32 mengirim sinyal tegangan (HIGH) ke pin relay untuk menyalakan aktuator.
+*   `Serial.println("Aktuator: ON (Suhu > 30°C)");` : Menampilkan informasi ke Serial Monitor bahwa aktuator sedang dalam kondisi ON.
+*   `} else if (suhu < suhuBatasBawah) {` : Kondisi alternatif (histerisis). Jika suhu tidak lebih dari batas atas, program mengecek apakah suhu turun lebih kecil dari 28.0°C.
+*   `digitalWrite(RELAYPIN, LOW);` : Jika suhu berada di bawah 28.0°C, ESP32 memutus sinyal (LOW) pada pin relay sehingga aktuator mati.
+*   `Serial.println("Aktuator: OFF (Suhu < 28°C)");` : Menampilkan informasi ke Serial Monitor bahwa aktuator telah OFF.
 
 Percobaan 1:
 <img width="503" height="600" alt="Screenshot 2026-09-01 225105" src="https://github.com/user-attachments/assets/41b717b2-72ed-4168-a7c9-948d3b3ad499" />
