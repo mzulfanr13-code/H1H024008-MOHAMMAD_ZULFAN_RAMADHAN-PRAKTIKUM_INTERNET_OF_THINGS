@@ -56,7 +56,7 @@ void loop() {
   }
   delay(5000);
 }
-
+```
 **Penjelasan kodenya**:
 * `WiFi.disconnect();` : Memutuskan status koneksi nirkabel internal secara paksa dan membersihkan status memori jaringan untuk mencegah error *stuck-state* sebelum mencoba memulai koneksi baru.
 * `WiFi.begin(ssid, password);` : Memerintahkan modul jaringan untuk mulai mencari dan melakukan otentikasi kembali ke jaringan utama (Redmi Note 13) menggunakan data login.
